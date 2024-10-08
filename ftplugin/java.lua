@@ -126,11 +126,19 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   end,
 })
 
+--local formatters = require "lvim.lsp.null-ls.formatters"
+--formatters.setup {
+--  { command = "google_java_format", filetypes = { "java" } },
+--}
+
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  { command = "google_java_format", filetypes = { "java" } },
+  {
+    command = "clang-format",
+    filetypes = { "java" },
+    extra_args = { "--style=file:/home/seiv-cloud/.config/lvim/.clang-format" },  -- You can specify different styles or use a custom .clang-format file
+  }
 }
-
 require("jdtls").start_or_attach(config)
 
 local status_ok, which_key = pcall(require, "which-key")
