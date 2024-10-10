@@ -41,3 +41,9 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 -- clean search pattern 
 lvim.keys.normal_mode["<leader>n"] = ":nohlsearch<CR>"
+
+lvim.keys = vim.tbl_deep_extend("force", lvim.keys, {
+  insert_mode = {
+    ["<C-l>"] = "<C-o>$<cmd>silent! LuaSnipUnlinkCurrent<CR>",
+    ["<C-j>"] = "<C-o>o<cmd>silent! LuaSnipUnlinkCurrent<CR>",
+}})
