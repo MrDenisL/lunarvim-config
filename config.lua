@@ -132,6 +132,3 @@ vim.api.nvim_create_autocmd("TermOpen", {
         end
     end,
 })
-
--- Keybinding to toggle markdown preview
-vim.keymap.set("n", "<leader>mp", "<cmd>MarkdownPreviewToggle<CR>", { noremap = true, silent = true })
